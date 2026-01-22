@@ -17,6 +17,8 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
+    height: 100%;
+    overflow: hidden;
 }
 
 /* ========== Top Bar ========== */
@@ -96,11 +98,12 @@ body {
 
 /* ========== Layout Shell ========== */
 .app-shell {
+    flex: 1;
     display: grid;
     grid-template-columns: 260px minmax(0, 1fr);
-    flex: 1; 
-    min-height: 0; 
+    min-height: 0;
 }
+
 
 
 
@@ -165,9 +168,11 @@ body {
 
 /* ========== Main Content ========== */
 .main-content {
-    padding: 1rem 1.25rem 4.5rem; 
+    padding: 1rem 1.25rem 6.5rem;
     overflow-y: auto;
+    min-height: 0; 
 }
+
 
 
 .chapter-header {
@@ -480,12 +485,6 @@ body {
     margin-bottom: 0.2rem;
 }
 
-/* Thumbnails with delete button */
-.photo-thumb-wrapper {
-    position: relative;
-    display: inline-block;
-}
-
 .photo-thumb {
     width: 82px;
     height: 82px;
@@ -560,10 +559,15 @@ body {
 
 /* ================== OBSERVATIONS PAGE =================== */
 
+
+
 .observations-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1.5rem;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
     .observations-table th,
@@ -579,12 +583,57 @@ body {
         font-weight: 600;
     }
 
+    .observations-table input {
+        width: 100%;
+        background: #0f172a;
+        color: #e5e7eb;
+        border: 1px solid #374151;
+        border-radius: 6px;
+        padding: 4px 6px;
+        font-size: 0.8rem;
+    }
+
+        .observations-table input:focus {
+            outline: 1px solid #3b82f6;
+            border-color: #3b82f6;
+        }
+
+
+    .observations-table th:nth-child(1),
+    .observations-table td:nth-child(1) {
+        width: 110px; /* RSIQ Ref */
+    }
+
+    .observations-table th:nth-child(2),
+    .observations-table td:nth-child(2) {
+        width: 140px; /* Item */
+    }
+
+    .observations-table th:nth-child(4),
+    .observations-table td:nth-child(4) {
+        width: 120px; /* Photos */
+    }
+
+    .observations-table th:nth-child(5),
+    .observations-table td:nth-child(5) {
+        width: 90px; /* Obs Nr */
+    }
+
+
 .observations-photo-cell {
     display: flex;
     flex-wrap: wrap;
     gap: 6px;
     align-items: center;
 }
+
+    .observations-photo-cell .btn.small {
+        padding: 2px 8px;
+        font-size: 0.8rem;
+        height: 28px;
+        line-height: 1;
+    }
+
 
 .observation-photo-thumb {
     width: 64px;
